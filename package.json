@@ -1,0 +1,22 @@
+{
+  "name": "associations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "embed.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghigbie/AssociationsPractice.git"
+  },
+  "author": "George Higbie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ghigbie/AssociationsPractice/issues"
+  },
+  "homepage": "https://github.com/ghigbie/AssociationsPractice#readme",
+  "dependencies": {
+    "mongoose": "^4.8.5"
+  }
+}
