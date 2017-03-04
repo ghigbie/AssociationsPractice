@@ -52,3 +52,11 @@ newUser.save(function(err, user){
 //         console.log(post);
 //     }
 // });
+
+User.findOne({name: "Charlie Brown II"}, function(err, user){
+    if(err){
+        console.log(err);
+    }else{
+        console.log(user);
+    }
+});
