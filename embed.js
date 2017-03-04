@@ -57,6 +57,16 @@ User.findOne({name: "Charlie Brown II"}, function(err, user){
     if(err){
         console.log(err);
     }else{
-        console.log(user);
+        user.posts.push({
+            title: "stuff that beagles really don't like",
+            content: "fish"
+        });
+        user.save(function(err, user){
+            if(err){
+                console.log(err);
+            }else{
+                console.log(user);
+            }
+        })
     }
 });
