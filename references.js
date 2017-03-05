@@ -27,31 +27,31 @@ var User = require("./models/user");
 //     }
 // });
 
-// Post.create({
-//     title: "How too cook your shoes - part 3",
-//     content: "Meow! Meow! Mewo!"
-// }, function(err, post){
-//     User.findOne({email: "bob@bob.com"}, function(err, foundUser){
-//         if(err){
-//             console.log(err);
-//         }else{
-//             foundUser.posts.push(post);
-//             console.log(post + " pushed into " + foundUser.post);
-//             foundUser.save(function(err, data){
-//                 if(err){
-//                     console.log(err);
-//                 }else{
-//                     console.log(data)
-//                 }
-//             });
-//         }
-//     });
-// //   if(err){
-// //         console.log(err);
-// //     }else{
-// //         console.log("Combo = check!");
-// //     }
-// });
+Post.create({
+    title: "How too cook your shoes - part 4",
+    content: "Meow! Meow! Mewo!"
+}, function(err, post){
+    User.findOne({email: "bob@bob.com"}, function(err, foundUser){
+        if(err){
+            console.log(err);
+        }else{
+            foundUser.posts.push(post);
+            console.log(post + " pushed into " + foundUser.post);
+            foundUser.save(function(err, data){
+                if(err){
+                    console.log(err);
+                }else{
+                    console.log(data)
+                }
+            });
+        }
+    });
+//   if(err){
+//         console.log(err);
+//     }else{
+//         console.log("Combo = check!");
+//     }
+});
 
 //Find User and then find a post associated with that user
 
