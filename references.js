@@ -11,7 +11,7 @@ var Post = mongoose.model("Post", postSchema);
 var userSchema = new mongoose.Schema({
     email: String,
     name: String,
-    post: [
+    posts: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Post"
@@ -23,13 +23,13 @@ var userSchema = new mongoose.Schema({
 var User = mongoose.model("User", userSchema);
 
 User.create({
-    email: "bob@bob.com",
-    name: "Boby McGee"
+    email: "bill@bob.com",
+    name: "Billy McGee"
 }, function(err, user){
     if(err){
         console.log(err);
     }else{
-        console.log(user);
+        console.log("USER -Check");
     }
 });
 
@@ -40,6 +40,42 @@ Post.create({
     if(err){
         console.log(err);
     }else{
-        console.log(post);
+        console.log("POST Check");
+    }
+});
+
+// Post.create({
+//     title: "How too cook your shoes - part 3",
+//     content: "Meow! Meow! Mewo!"
+// }, function(err, post){
+//     User.findOne({email: "bob@bob.com"}, function(err, foundUser){
+//         if(err){
+//             console.log(err);
+//         }else{
+//             foundUser.posts.push(post);
+//             console.log(post + " pushed into " + foundUser.post);
+//             foundUser.save(function(err, data){
+//                 if(err){
+//                     console.log(err);
+//                 }else{
+//                     console.log(data)
+//                 }
+//             });
+//         }
+//     });
+// //   if(err){
+// //         console.log(err);
+// //     }else{
+// //         console.log("Combo = check!");
+// //     }
+// });
+
+//Find User and then find a post associated with that user
+
+User.findOne({email: "bob@bob.com"}).populate("posts").exec(function(err,user){
+    if(err){
+        console.log(err);
+    }else{
+        console.log(user);
     }
 });
