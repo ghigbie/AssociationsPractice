@@ -1,48 +1,31 @@
 var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/blog_demo_2");
 
-var postSchema = new mongoose.Schema({
-    title: String,
-    content: String
-});
+var Post = require("./models/post");
+var User = require("./models/user");
 
-var Post = mongoose.model("Post", postSchema);
 
-var userSchema = new mongoose.Schema({
-    email: String,
-    name: String,
-    posts: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Post"
-        
-        }
-    ]
-});
+// User.create({
+//     email: "bill@bob.com",
+//     name: "Billy McGee"
+// }, function(err, user){
+//     if(err){
+//         console.log(err);
+//     }else{
+//         console.log("USER -Check");
+//     }
+// });
 
-var User = mongoose.model("User", userSchema);
-
-User.create({
-    email: "bill@bob.com",
-    name: "Billy McGee"
-}, function(err, user){
-    if(err){
-        console.log(err);
-    }else{
-        console.log("USER -Check");
-    }
-});
-
-Post.create({
-    title: "How too cook your shoes.",
-    content: "Meow!"
-}, function(err, post){
-    if(err){
-        console.log(err);
-    }else{
-        console.log("POST Check");
-    }
-});
+// Post.create({
+//     title: "How too cook your shoes.",
+//     content: "Meow!"
+// }, function(err, post){
+//     if(err){
+//         console.log(err);
+//     }else{
+//         console.log("POST Check");
+//     }
+// });
 
 // Post.create({
 //     title: "How too cook your shoes - part 3",
@@ -72,10 +55,10 @@ Post.create({
 
 //Find User and then find a post associated with that user
 
-User.findOne({email: "bob@bob.com"}).populate("posts").exec(function(err,user){
-    if(err){
-        console.log(err);
-    }else{
-        console.log(user);
-    }
-});
+// User.findOne({email: "bob@bob.com"}).populate("posts").exec(function(err,user){
+//     if(err){
+//         console.log(err);
+//     }else{
+//         console.log(user);
+//     }
+// });
